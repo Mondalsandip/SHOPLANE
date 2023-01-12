@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes,Route } from 'react-router-dom';
+import Header from './components/Layout/Header';
+import All from './components/Pages/All';
+import Eletronics from './components/Pages/Eletronics';
+import Jewelery from './components/Pages/Jewelery';
+import MenCloth from './components/Pages/MenCloth';
+import WomenCloth from './components/Pages/WomenCloth';
+import Cart from './components/Cart/Cart';
+import Wishlist from './components/Wishlist/Wishlist';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>  
+     <Header/>
+
+     <Routes>
+
+
+    <Route path='/all'  element={<All/>} />
+    <Route path='/eletronics'  element={<Eletronics/>} />
+    <Route path='/jewelery' element={<Jewelery/>} />
+    <Route path='/mencloth' element={<MenCloth/>} /> 
+    <Route path='/womencloth'  element={<WomenCloth/>} />
+    <Route path='/login'  element={<WomenCloth/>} />
+    <Route path='/signup'  element={<WomenCloth/>} />
+    <Route path='/cart'  element={<Cart/>} />
+    <Route path='/favourites'  element={<WomenCloth/>} />
+    <Route path='/wishlist'  element={<Wishlist/>} />
+    </Routes>
+    </>
   );
 }
 

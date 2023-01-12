@@ -1,0 +1,12 @@
+.star-section{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    /* border: 1px solid red; */
+}
+
+.count{
+    font-size: 15px;
+    color: rgba(15, 14, 14,.5);
+    font-weight: 500;
+}

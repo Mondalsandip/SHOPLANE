@@ -1,0 +1,47 @@
+.header {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    z-index: 10;
+    font-weight: 100;
+  }
+  .first-section{
+    color: aquamarine;
+
+  }
+  .header p{
+    text-transform: uppercase;
+    font-size: 26px;
+    font-weight: 400;
+  }
+.line{
+    margin: 0  auto;
+    width: 80%;
+    height: 2px;
+    background-color: rgba(16, 15, 15,.2)
+
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 300px;
+    height: 60px;
+
+}
+.secondline{
+    margin: 0  auto;
+    width: 80%;
+    height: 2px;
+    background-color: rgba(16, 15, 15,.2);
+
+}
+a{
+    text-decoration: none;
+    color: black;
+ }
+ 
