@@ -20,6 +20,10 @@
 .cart-content:hover,
 .cart-content:active,
 .cart-content:focus{
+  background-color: rgba(213, 211, 211, 0.45);
+
+
+
   
 }
 

@@ -5,21 +5,32 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import ClothItemForm from './ClothItemForm'
 import { wishlistAction } from '../reducers/wishlist-reducer'
-import Button from '../Wishlist/Button'
+import WishlistHeart from '../Wishlist/WishlistHeart'
 import Star from '../asset/Star'
-import  {Tooltip}   from '@material-ui/core'
+import useHttp from '../hooks/use-http'
+
+// import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "react-bootstrap/Tooltip";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+
+
 
 
 const ClothItem = (props) => {
+  // console.log('props', props)
   const [quantity, setQuantity]=useState()
   const [quantitywishlist, setQuantityWishlist]=useState()
   const dispatch= useDispatch()
   const itemCart= useSelector(arg => arg.cart.value)
+  const totalAmount= useSelector(arg => arg.cart.totalAmount)
+  const totalQuantity= useSelector(arg => arg.cart.totalQuantity)
+
   const wishlistItem= useSelector(arg => arg.wishlist.valuAarr)
+  const {getData }=useHttp()
   // const sel=useSelector(arg => arg.wishlist.valuAarr)
 
 
-    const  {id, title, price,image, rate:{ rate:rate, count: count }}= props
+    const  {id, title, price,image, rate:{ rate, count }}= props
     // const Item= useSelector(arg => arg.cart.value)
 
     // console.log('Item',Item)
@@ -32,9 +43,39 @@ const ClothItem = (props) => {
 const addToCartHandler=()=>{
   dispatch(cartAction.addItem(props))
 
-  
+
   
 }
+// const transformData=(data)=>{
+//   console.log('data',data)
+//   console.log('got data')
+//   dispatch(cartAction.replace(data))
+  
+
+// }
+
+
+// useEffect(()=>{
+//   console.log('calling cloth')
+//   getData({url: 'https://react-http-6ee55-default-rtdb.asia-southeast1.firebasedatabase.app/cloth.json'},transformData)
+//   console.log('cloth')
+// },[])
+
+  // useEffect(()=>{
+  //   console.log('calling cloth')
+  //   getData({
+  //     url: 'https://react-http-6ee55-default-rtdb.asia-southeast1.firebasedatabase.app/cloth.json',
+  //     method: 'PUT',
+  //     body: {itemCart,totalAmount,totalQuantity}
+  //   })
+  //   console.log('cloth')
+  // },[itemCart,totalAmount,totalQuantity,getData])
+
+
+
+  
+  
+
 const removeToCartHandler=()=>{
   dispatch(cartAction.removeItem(id))
 
@@ -69,7 +110,7 @@ useEffect(()=>{
 
 
 
-},[itemCart,wishlistItem])
+},[itemCart,wishlistItem,id])
 
 // const handlerSubmitDecrease =()=>{
 //   dispatch(cartAction.removeItem(id))
@@ -78,21 +119,29 @@ useEffect(()=>{
 
 
 // }
+const renderTooltip = props => (
+  <Tooltip {...props}>{title}</Tooltip>
+);
 
 
 
   return (
     <div className={classes.cloth}>
-      <Tooltip title={title} placement='top'>
+      {/* <Tooltip title={title} placement='top'> */}
+
       <div className={classes['cart-content']} >
         
         <div className={classes['btn-wishlist']}> 
 
-        <Button onRemoveToWishlist={removeToWishlistHandler} onAddToWishlist={addToWishlistHandler}  id={id} quantitywishlist={quantitywishlist}   />
+        <WishlistHeart onRemoveToWishlist={removeToWishlistHandler} onAddToWishlist={addToWishlistHandler}  id={id} quantitywishlist={quantitywishlist}   />
 
         </div>
         <div className={classes['img-cart']}>
+        <OverlayTrigger placement="right-start" overlay={renderTooltip} >
+
           <img src={image} alt="sndjks" />
+          </OverlayTrigger>
+
           </div>
           <div className={classes['title-box']}>
           <h3> <span className={classes.brand}>brand</span>{title}</h3>
@@ -110,7 +159,8 @@ useEffect(()=>{
         
       
             </div>
-            </Tooltip>
+            {/* </Tooltip> */}
+
 
     </div>
   )

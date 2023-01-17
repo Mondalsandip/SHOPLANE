@@ -1,0 +1,19 @@
+
+.text-input{
+    padding: 10px 10px;
+    width: 20vw;
+    border-radius: 15px;
+    border: 2px solid rgba(110, 112, 110,.23);
+    
+
+} 
+
+.single_field{
+    display: flex;
+    align-items: flex-start;
+    flex-flow: column nowrap;
+    gap: 5px;
+    height: 80px;
+    /* border: 1px solid red; */
+    
+}

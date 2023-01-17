@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = (props) => {
+const WishlistHeart = (props) => {
 
 
 const submitHandleAdd=()=>{
@@ -32,4 +32,4 @@ return (
   )
 }
 
-export default Button
+export default WishlistHeart

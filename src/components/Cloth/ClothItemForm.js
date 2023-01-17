@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react'
 import classes from './ClothItemForm.module.css'
 import Input from '../UI/Input'
+import Button from '../UI/Button'
 
 const ClothItemForm = (props) => {
+  // console.log('quantity',props.quantity)
   const refQuantity= useRef()
     
     const submitHandler=(e)=>{
@@ -35,7 +37,9 @@ const ClothItemForm = (props) => {
     <form className={classes.form}  onSubmit={submitHandler}  >
        
 
-         <button className={classes.add} onClick={submitHandleAdd}>+</button>
+         {/* <button className={classes.add} onClick={submitHandleAdd}>+</button> */}
+         <Button className='all_item' onClick={submitHandleAdd}>+</Button>
+
         <div className={classes.input_number}>
 
         <Input ref={refQuantity} input={{
@@ -48,13 +52,9 @@ const ClothItemForm = (props) => {
 
         </div>
          
+   { props.quantity    &&    <Button className='all_item' onClick={submitHandleRemove}>-</Button> }
 
-
-
-         
-
-
-          { props.quantity    && <button className={classes.remove} onClick={submitHandleRemove}>-</button>  }  
+   {/* <button className={classes.remove} onClick={submitHandleRemove}>-</button>   */}
 
       
     </form>

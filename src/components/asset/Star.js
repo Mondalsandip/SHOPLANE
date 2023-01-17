@@ -4,7 +4,7 @@ import FilledStar from './FilledStar'
 import BlankStart from './BlankStart'
 
 const Star = (props) => {
-  console.log('hds',props)
+  // console.log('hds',props)
    const {star,count}= props
 
   const ratingStar= Array.from({length:5}, (e,i)=>{

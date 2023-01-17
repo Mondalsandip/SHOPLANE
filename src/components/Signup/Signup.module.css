@@ -1,0 +1,61 @@
+
+.login_details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    flex-flow: column nowrap;
+    gap:5vh;
+
+}
+
+
+
+.text-input{
+    padding: 10px 10px;
+    width: 20vw;
+    border-radius: 15px;
+    border: 2px solid rgba(110, 112, 110,.23);
+
+} 
+
+p{
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 0, 0, 0.848);
+}
+
+.all_fields{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-flow: column nowrap;
+    height: 500px;
+    width: 308px;
+    /* border: 1px solid red; */
+
+}
+
+
+.btn_cls{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.single_field{
+    display: flex;
+    align-items: flex-start;
+    flex-flow: column nowrap;
+    gap: 5px;
+    height: 80px;
+    
+}
+.here{
+    color: blue;
+}
+
+.heading-text{
+font-weight: 222;
+}

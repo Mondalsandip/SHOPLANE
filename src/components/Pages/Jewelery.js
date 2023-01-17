@@ -1,30 +1,7 @@
 import React from 'react'
-import AvailableCloth from '../Cloth/AvailableCloth'
-import { useState,useEffect } from 'react'
+import Commondata from './Commondata'
 
 
-const Jewelery = () => {
-
-
-  const [data, setData] =useState()
-          useEffect(()=>{
-                const getData= async ()=>{
-                  const fetchData= await fetch('https://fakestoreapi.com/products/category/jewelery')
-                  const recvData=await fetchData.json()
-                  setData(recvData)
-                  }
-                getData()
-
-          },[])
-
-
-  return (
-    <>
-    { data  && <AvailableCloth  data={data}    />   }  
-    </>
-  )
-}
-
-
+const Jewelery = () =>  <Commondata url={'https://fakestoreapi.com/products/category/jewelery'} />
 
 export default Jewelery

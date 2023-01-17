@@ -1,17 +1,14 @@
-.back-color{
-    color: black;
-    background-color: whitesmoke;
-    border-radius: 5px;
-border: 2px solid rgba(13, 12, 12, .090)
-
-
-}
-
 .back-color:hover,
 .back-color:focus,
-.back-color:active{
-    color: black;
-    background-color: white;
-    border: 2px solid rgba(13, 12, 12, .090)
+.back-color:active,
+.back-color::after,
+.back-color::backdrop,
+.back-color::before
+{
+      border: 2px solid rgba(13, 12, 12, .090);
+      border-radius: 25px;
+      background-color: whitesmoke;
 
 }
+
+

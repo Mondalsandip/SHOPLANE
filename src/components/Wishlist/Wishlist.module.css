@@ -1,0 +1,50 @@
+.logo-heart{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    margin-top: 60px;
+    gap: 40px;
+    /* border: 1px solid red; */
+}
+.actions {
+    /* font: inherit; */
+    cursor: pointer;
+    background-color: rgba(7, 7, 223, 0.9);
+    border: 1px solid #8a2b06;
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    margin-left: 1rem;
+    color: white;
+
+  }
+  
+
+  
+  .actions:hover,
+  .actions:active,
+  .actions:focus  {
+    background-color: rgba(3, 3, 148, 0.9);
+    border-color: #5a1a01;
+  }
+ 
+   .text-item h6{
+    margin: 0;
+   }
+   .text-item p{
+    margin: 0;
+    font-weight: 250;
+    color: rgba(14, 11, 11,.7);
+   }
+
+
+  .text-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    gap: 10px;
+    /* border: 1px solid black; */
+
+  }

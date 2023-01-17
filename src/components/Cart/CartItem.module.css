@@ -10,8 +10,9 @@
     align-items: center;
 }
 
-p{
+.cartItem p{
     font-size: medium;
+    color: rgba(11, 10, 10,.5)
 }
 
 img{
@@ -23,23 +24,34 @@ img{
     display: flex;
     align-items: flex-start;
     flex-flow: column nowrap;
+    margin-left: 150px;
 
 
 
 }
+.left-section{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    flex-basis: 70%;
+    gap: 250px;
 
-.add-btn{
+}
+.right-section{
+    /* border: 1px solid black; */
+    flex-basis: 30%;
+}
+
+.cart-btn{
     /* border: 1px solid blue; */
     margin-left: 25px;
-    width: 80px;
+    /* width: 80px; */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
     
 
 }
 
-.btn-in,.btn-de {
-
-}
 
