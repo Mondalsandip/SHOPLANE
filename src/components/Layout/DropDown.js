@@ -9,7 +9,7 @@ import { loginAction } from '../reducers/login-signup';
 
 function DropdownItemTagsExample() {
   const currentUser= useSelector(arg => arg.login.currentUser)
-  console.log('currentUser',currentUser)
+  // console.log('currentUser',currentUser)
   const dispatch= useDispatch()
   
   // const nav=useNavigate()
@@ -38,7 +38,7 @@ const show= current_User === 'Login or signup';
       {/* {console.log('currentdata',currentdata)} */}
       {show   && <Dropdown.Item as="button"> <Link to='/login'>  Login </Link></Dropdown.Item>   }  
      {show && <Dropdown.Item as="button"> <Link to='/signup'>  Sign up </Link> </Dropdown.Item> } 
-      {!show && <Dropdown.Item as="button" onClick={handleLogout} >   Logout  </Dropdown.Item> } 
+      {!show && <Dropdown.Item as="button" onClick={handleLogout} > <Link to='/login'>  Logout </Link>    </Dropdown.Item> } 
       
     </DropdownButton>
   );

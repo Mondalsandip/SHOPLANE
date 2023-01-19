@@ -1,0 +1,13 @@
+.not-found{
+    /* border: 1px solid red; */
+    margin: 100px auto;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    gap: 15px;
+    color: rgba(7, 7, 201, .5);
+    font-size: 20px;
+    font-weight: 600;
+    font-style: italic;
+}

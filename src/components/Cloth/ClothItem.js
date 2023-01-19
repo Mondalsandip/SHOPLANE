@@ -7,11 +7,14 @@ import ClothItemForm from './ClothItemForm'
 import { wishlistAction } from '../reducers/wishlist-reducer'
 import WishlistHeart from '../Wishlist/WishlistHeart'
 import Star from '../asset/Star'
-import useHttp from '../hooks/use-http'
+// import useHttp from '../hooks/use-http'
+// import ProductDetails from '../Pages/ProductDetails'
+// import { Route, } from 'react-router-dom'
 
 // import Tooltip from "@material-ui/core/Tooltip";
 import Tooltip from "react-bootstrap/Tooltip";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import { Link,useLocation } from 'react-router-dom'
 
 
 
@@ -22,11 +25,17 @@ const ClothItem = (props) => {
   const [quantitywishlist, setQuantityWishlist]=useState()
   const dispatch= useDispatch()
   const itemCart= useSelector(arg => arg.cart.value)
-  const totalAmount= useSelector(arg => arg.cart.totalAmount)
-  const totalQuantity= useSelector(arg => arg.cart.totalQuantity)
-
+  //  const match=useMatch()
+  //  console.log('match', match)
+   const location= useLocation()
+  //  console.log('location',location)
+   const path=location.pathname
+  //  console.log('path',path)
+  // const totalAmount= useSelector(arg => arg.cart.totalAmount)
+  // const totalQuantity= useSelector(arg => arg.cart.totalQuantity)
+// console.log('match',match)
   const wishlistItem= useSelector(arg => arg.wishlist.valuAarr)
-  const {getData }=useHttp()
+  // const {getData }=useHttp()
   // const sel=useSelector(arg => arg.wishlist.valuAarr)
 
 
@@ -38,7 +47,10 @@ const ClothItem = (props) => {
 
     // const quantityItem= itemCart.find(item => item.id === id)
     // console.log('quantityItem',quantityItem)
-
+// const redirectToDetailsPageHandler=()=>{
+//      <Link to={`/all/${id}`}></Link>
+  
+// }
 
 const addToCartHandler=()=>{
   dispatch(cartAction.addItem(props))
@@ -126,7 +138,7 @@ const renderTooltip = props => (
 
 
   return (
-    <div className={classes.cloth}>
+    <div className={classes.cloth} >
       {/* <Tooltip title={title} placement='top'> */}
 
       <div className={classes['cart-content']} >
@@ -136,6 +148,8 @@ const renderTooltip = props => (
         <WishlistHeart onRemoveToWishlist={removeToWishlistHandler} onAddToWishlist={addToWishlistHandler}  id={id} quantitywishlist={quantitywishlist}   />
 
         </div>
+        <Link to={`${path}/${id}`}>
+
         <div className={classes['img-cart']}>
         <OverlayTrigger placement="right-start" overlay={renderTooltip} >
 
@@ -144,16 +158,19 @@ const renderTooltip = props => (
 
           </div>
           <div className={classes['title-box']}>
-          <h3> <span className={classes.brand}>brand</span>{title}</h3>
+          <h3> <span className={classes.brand}>brand </span>{title}</h3>
           </div>
           <Star star={Math.round(rate)} count={count} /> 
            
             <div className={classes.price}><span className={classes.dollar}>$</span>{price}</div>
-            
+                        </Link>
+
 
             <ClothItemForm onRemoveToCart={removeToCartHandler} onAddToCart={addToCartHandler}  id={id} quantity={quantity}  />
+           
+            
+            {/* <Link to={`${path}/${id}`}>details    </Link> */}
 
-          
            
 
         

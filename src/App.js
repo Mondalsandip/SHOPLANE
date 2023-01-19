@@ -14,6 +14,8 @@ import { loginAction } from './components/reducers/login-signup';
 import { useEffect } from 'react';
 import useHttp from './components/hooks/use-http';
 import { cartAction } from './components/reducers/cart-reducer'
+import ProductDetails from './components/Pages/ProductDetails';
+import NotFound from './components/Pages/NotFound';
 
 
 let firstTime=true
@@ -27,8 +29,8 @@ const changedLoginData=  useSelector(arg => arg.login.changedUser)
 const changedCurrentUser=  useSelector(arg => arg.login.changedCurrentUser)
 const allUser= useSelector(arg => arg.login.value)
 const currentUser= useSelector(arg => arg.login.currentUser)
-console.log('all user',allUser )
-console.log('current user',currentUser)
+// console.log('all user',allUser )
+// console.log('current user',currentUser)
 
 
 
@@ -38,11 +40,15 @@ console.log('current user',currentUser)
 useEffect(()=>{
   const transformTask=(data)=>{
     // console.log(data)
-    dispatch(cartAction.replacecart(data))
+    dispatch(cartAction.replacecart({
+      value : data.value ||  [] ,
+      totalQuantity: data.totalQuantity ,
+      totalAmount: data.totalAmount
+    }))
   
   }
 
-       getData({url: 'https://react-http-6ee55-default-rtdb.asia-southeast1.firebasedatabase.app/cloth.json'}, transformTask)
+       getData({url: 'https://shoplane-3ed93-default-rtdb.asia-southeast1.firebasedatabase.app/cloth.json'}, transformTask)
   },[getData,dispatch])
 
 
@@ -53,7 +59,7 @@ useEffect(()=>{
     }
     if(changedCartData){
       getData({
-        url: 'https://react-http-6ee55-default-rtdb.asia-southeast1.firebasedatabase.app/cloth.json',
+        url: 'https://shoplane-3ed93-default-rtdb.asia-southeast1.firebasedatabase.app/cloth.json',
         method: 'PUT',
         body: cartItem
       })
@@ -62,7 +68,7 @@ useEffect(()=>{
 },[cartItem,getData,changedCartData])
 
 
-///This is for login, signup
+//This is for login, signup
 useEffect(()=>{
   const transformTask=(data)=>{
     // console.log('data',data)
@@ -70,7 +76,7 @@ useEffect(()=>{
   
   }
 
-       getData({url: 'https://react-http-6ee55-default-rtdb.asia-southeast1.firebasedatabase.app/login.json'}, transformTask)
+       getData({url: 'https://shoplane-3ed93-default-rtdb.asia-southeast1.firebasedatabase.app/login.json'}, transformTask)
   },[getData,dispatch])
 
 
@@ -82,7 +88,7 @@ useEffect(()=>{
     if(changedLoginData){
       // console.log('data changed')
       getData({
-        url: 'https://react-http-6ee55-default-rtdb.asia-southeast1.firebasedatabase.app/login.json',
+        url: 'https://shoplane-3ed93-default-rtdb.asia-southeast1.firebasedatabase.app/login.json',
         method: 'PUT',
         body: allUser
       })
@@ -91,15 +97,15 @@ useEffect(()=>{
 },[allUser,getData,changedLoginData])
 
 
-///This is for current user
+// ///This is for current user
 useEffect(()=>{
   const transformTask=(data)=>{
-    console.log('data',data)
+    // console.log('data',data)
     dispatch(loginAction.replaceCurrentUser(data))
   
   }
 
-       getData({url: 'https://react-http-6ee55-default-rtdb.asia-southeast1.firebasedatabase.app/currentuser.json'}, transformTask)
+       getData({url: 'https://shoplane-3ed93-default-rtdb.asia-southeast1.firebasedatabase.app/currentuser.json'}, transformTask)
   },[getData,dispatch])
 
 
@@ -110,7 +116,7 @@ useEffect(()=>{
     }
     if(changedCurrentUser){
       getData({
-        url: 'https://react-http-6ee55-default-rtdb.asia-southeast1.firebasedatabase.app/currentuser.json',
+        url: 'https://shoplane-3ed93-default-rtdb.asia-southeast1.firebasedatabase.app/currentuser.json',
         method: 'PUT',
         body: currentUser
       })
@@ -131,15 +137,21 @@ useEffect(()=>{
 
     <Route path='/' element={<Navigate to='/all'/>} />
     <Route path='/all'  element={<All/>} />
+    <Route path='/all/:productId' element={<ProductDetails/>} />
     <Route path='/eletronics'  element={<Eletronics/>} />
+    <Route path='/eletronics/:productId'  element={<ProductDetails/>} />
     <Route path='/jewelery' element={<Jewelery/>} />
+    <Route path='/jewelery/:productId' element={<ProductDetails/>} />
     <Route path='/mencloth' element={<MenCloth/>} /> 
+    <Route path='/mencloth/:productId' element={<ProductDetails/>} /> 
     <Route path='/womencloth'  element={<WomenCloth/>} />
+    <Route path='/womencloth/:productId'  element={<ProductDetails/>} />
     <Route path='/login'  element={<Login/>} />
     <Route path='/signup'  element={<Signup/>} />
     <Route path='/cart'  element={<Cart/>} />
     <Route path='/favourites'  element={<WomenCloth/>} />
     <Route path='/wishlist'  element={<Wishlist/>} />
+    <Route path='*'  element={<NotFound/>} ></Route>
     </Routes>
     </>
   );

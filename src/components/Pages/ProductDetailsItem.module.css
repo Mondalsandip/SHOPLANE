@@ -1,0 +1,104 @@
+.cloth {
+    
+    border: 1px solid rgba(179, 177, 177, .3);
+    padding: 20px;
+    width: 500px;
+    margin: 100px auto;
+    border-radius: 70px;
+    /* border: 2px solid red; */
+
+    /* display: inline-block; */
+
+
+    
+  }
+  .cart-content{
+    background-color: rgba(240, 238, 238,.56);
+    border-radius: 10px;
+    padding: 25px;
+    cursor: pointer;
+    border-radius: 70px;
+    border: 3px solid rgba(13, 13, 13, 0.236)
+    /* height: 200px; */
+
+  }
+.cart-content:hover,
+.cart-content:active,
+.cart-content:focus{
+  background-color: rgba(213, 211, 211, 0.45);
+
+
+
+  
+}
+.btn-cart{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+  
+  .img-cart{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .img-cart img{
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+  
+
+}
+.title-box{
+  margin-top: 35px;
+  margin-bottom: 8px;
+
+  /* border: 1px solid red; */
+  height: 17px;
+  overflow: hidden;
+
+
+}
+.desc p{
+  font-size: 14px;
+    font-weight: 500;
+    color: rgba(22, 3, 171, 0.5);
+    font-style: italic;
+
+}
+
+  .title-box h3 {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(13, 13, 13, 0.5);
+    font-style: italic;
+  }
+  .brand{
+    text-transform: capitalize;
+    font-weight: bold;
+    color: black;
+    font-style: normal;
+  }
+  
+
+  
+  .price {
+    font-weight: 500;
+    color: rgba(13, 13, 13, 0.9);
+    font-size: 1.25rem;
+    font-size: 16px;
+
+  }
+  
+  .price .dollar{
+    color:rgba(13, 13, 13, 0.36);
+    font-size: 15px;
+    
+  }

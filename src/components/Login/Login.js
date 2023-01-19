@@ -27,9 +27,9 @@ const SignupSchema=Yup.object().shape({
 
 const Login = (props) => {
    const value= useSelector(arg => arg.login.value)
-   const currentUser= useSelector(arg => arg.login.currentUser)
-   console.log('all user',value )
-   console.log('current user',currentUser)
+  //  const currentUser= useSelector(arg => arg.login.currentUser)
+  //  console.log('all user',value )
+  //  console.log('current user',currentUser)
    const [show,setShow]= useState()
    const [showcredential,setShowCredential]= useState()
     // const [recvdataserver, setRecvDataServer]= useState()

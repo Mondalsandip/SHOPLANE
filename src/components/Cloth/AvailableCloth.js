@@ -1,19 +1,19 @@
 import React from 'react'
 import classes from './AvailableCloth.module.css'
-import Card from '../UI/Card'
+// import Card from '../UI/Card'
 import ClothItem from './ClothItem'
-import { useSelector } from 'react-redux'
-import useHttp from '../hooks/use-http'
-import { useEffect } from 'react'
+// import { useSelector } from 'react-redux'
+// import useHttp from '../hooks/use-http'
+// import { useEffect } from 'react'
 
 
 
 const AvailableCloth = (props) => {
 
-  const itemCart= useSelector(arg => arg.cart.value)
-  const totalAmount= useSelector(arg => arg.cart.totalAmount)
-  const totalQuantity= useSelector(arg => arg.cart.totalQuantity)
-  const {isLoading,error,getData}= useHttp()
+  // const itemCart= useSelector(arg => arg.cart.value)
+  // const totalAmount= useSelector(arg => arg.cart.totalAmount)
+  // const totalQuantity= useSelector(arg => arg.cart.totalQuantity)
+  // const {isLoading,error,getData}= useHttp()
   
 
   // useEffect(()=>{
