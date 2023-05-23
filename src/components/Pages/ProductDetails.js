@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 // import AvailableCloth from '../Cloth/AvailableCloth'
 import Spinnercomp from '../asset/Spinner'
 import Alert from 'react-bootstrap/Alert';
@@ -14,6 +14,21 @@ const [recvdata,setRecvData]=useState([])
 // const [data,setRecvData]=useState([])
 const {isLoading,error,getData }=useHttp()
 const params= useParams()
+const location= useLocation()
+const path= location.pathname
+// console.log('path:',path)
+// const index=(path.slice(1)).lastIndexOf
+// console.log('index:',index)
+// const index= finalPath.indexOf('/')
+// console.log('index:',index)
+// const finalPathParm=finalPath.slice(0,index)
+// console.log('finalPathParm',finalPathParm)
+const findex=path.indexOf('/')
+const lindex=path.lastIndexOf('/')
+// console.log(findex,lindex)
+const fpath=path.slice(findex,lindex)
+// console.log('fpath:',fpath)
+
 const id=params.productId
 
 
@@ -46,7 +61,7 @@ getData({url:'https://fakestoreapi.com/products' }, transformdata)
 
         {isLoading  && <div style={{margin: '200px   800px'}}> <Spinnercomp/>   </div>   }  
         { error && <div style={{margin: '200px   800px'}}><Alert variant='danger'> {error} </Alert>  </div>    }
-        { !error && data  && <ProductDetailsItem data={data}  /> }  
+        { !error && data  && <ProductDetailsItem data={data} path={fpath} /> }  
     
     
     </>

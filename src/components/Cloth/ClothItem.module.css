@@ -87,3 +87,6 @@
     font-size: 15px;
     
   }
+  .cart-content a{
+    text-decoration: none;
+  }

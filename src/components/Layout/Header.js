@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './Header.module.css'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import HeaderCartButton from './HeaderCartButton'
 
 const Header = () => {
@@ -19,16 +19,11 @@ const Header = () => {
      
 
     <nav className={classes.navbar}>   
-        <Link to='/all'> all  </Link>
-        <Link to='/eletronics'> eletronics  </Link>
-        <Link to='/jewelery'> jewelery  </Link>
-        <Link to='/mencloth'> men's clothing  </Link>
-        <Link to='/womencloth'> women's clothing  </Link>
-
-       
-
-        
-        
+         <NavLink to='/all' className={({ isActive })=> isActive ? classes.active : undefined }   > all  </NavLink> 
+        <NavLink to='/eletronics'  className={({ isActive })=> isActive ? classes.active : undefined }> eletronics  </NavLink>
+        <NavLink to='/jewelery'  className={({ isActive })=> isActive ? classes.active : undefined }> jewelery  </NavLink>
+        <NavLink to='/mencloth'  className={({ isActive })=> isActive ? classes.active : undefined }> men's clothing  </NavLink>
+        <NavLink to='/womencloth'  className={({ isActive })=> isActive ? classes.active : undefined }> women's clothing  </NavLink>
     </nav>
     <div className={classes.secondline}>
         
